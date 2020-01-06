@@ -1,0 +1,153 @@
+Options -MultiViews -Indexes
+
+ 
+
+RewriteEngine On
+
+ 
+
+# Handle Authorization Header
+
+
+RewriteCond %{HTTP:Authorization} .
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+ 
+
+# Redirect Trailing Slashes If Not A Folder...
+
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [L,R=301]
+
+ 
+
+# Handle Front Controller...
+
+
+
+
+RewriteCond %{REQUEST_URI} !(\.css|\.js|\.png|\.jpg|\.gif|robots\.txt)$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
+
+ 
+
+
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(css|js|images|m3u)/(.*)$ public/$1/$2 [L,NC]
+
+RewriteCond %{HTTP_REFERER} !^http://dl-communication.it/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://dl-communication.it$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://dl-communication.next-news.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://dl-communication.next-news.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://drien.tk/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://drien.tk$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://franckhouse.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://franckhouse.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://kontrata.dl-communication.it/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://kontrata.dl-communication.it$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://next-news.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://next-news.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://ontimetravel.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://ontimetravel.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://ontimetravel.next-news.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://ontimetravel.next-news.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://regjistrimet.dl-communication.it/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://regjistrimet.dl-communication.it$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://test.boxnews.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://test.boxnews.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://test.next-news.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://test.next-news.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://test1.next-news.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://test1.next-news.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.boxnews.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.boxnews.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.boxnews.next-news.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.boxnews.next-news.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.dl-communication.it/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.dl-communication.it$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.dl-communication.next-news.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.dl-communication.next-news.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.drien.tk/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.drien.tk$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.franckhouse.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.franckhouse.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.kontrata.dl-communication.it/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.kontrata.dl-communication.it$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.next-news.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.next-news.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.ontimetravel.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.ontimetravel.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.ontimetravel.next-news.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.ontimetravel.next-news.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.regjistrimet.dl-communication.it/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.regjistrimet.dl-communication.it$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.test.boxnews.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.test.boxnews.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.test.next-news.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.test.next-news.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.test1.next-news.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.test1.next-news.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://boxnews.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://boxnews.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://boxnews.next-news.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://boxnews.next-news.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://dl-communication.it/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://dl-communication.it$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://dl-communication.next-news.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://dl-communication.next-news.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://drien.tk/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://drien.tk$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://franckhouse.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://franckhouse.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://kontrata.dl-communication.it/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://kontrata.dl-communication.it$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://next-news.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://next-news.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://ontimetravel.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://ontimetravel.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://ontimetravel.next-news.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://ontimetravel.next-news.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://regjistrimet.dl-communication.it/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://regjistrimet.dl-communication.it$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://test.boxnews.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://test.boxnews.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://test.next-news.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://test.next-news.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://test1.next-news.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://test1.next-news.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.boxnews.next-news.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.boxnews.next-news.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.dl-communication.it/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.dl-communication.it$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.dl-communication.next-news.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.dl-communication.next-news.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.drien.tk/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.drien.tk$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.franckhouse.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.franckhouse.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.kontrata.dl-communication.it/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.kontrata.dl-communication.it$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.next-news.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.next-news.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.ontimetravel.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.ontimetravel.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.ontimetravel.next-news.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.ontimetravel.next-news.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.regjistrimet.dl-communication.it/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.regjistrimet.dl-communication.it$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.test.boxnews.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.test.boxnews.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.test.next-news.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.test.next-news.al$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.test1.next-news.al/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.test1.next-news.al$      [NC]
+RewriteRule .*\.(jpg|jpeg|gif|png|bmp)$ - [F,NC]
